@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Lomba Voice of Independence - V_VINTAGE</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f1ea;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background-color: #ffffff;
+            max-width: 500px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 6px solid #5c3a21;
+        }
+        /* Gaya untuk Container Logo */
+         .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        /* Gaya untuk Gambar Logo */
+        .logo-image {
+            max-width: 180px; /* Sesuaikan ukuran logo di sini */
+            height: auto;
+        } 
+        h2 {
+            text-align: center;
+            color: #5c3a21;
+            margin-bottom: 5px;
+            margin-top: 0; /* menghilangkan margin atas agar rapat dengan logo */
+        }
+        p.subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #5c3a21;
+        }
+        .btn-submit {
+            width: 100%;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #1ebc57;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+        <!-- Bagian Logo Baru -->
+    <div class="logo-container">
+        <!-- Ganti 'images/logo vintage.png' dengan path/URL gambar logo Anda yang sebenarnya -->
+        <img src="logo vintage/logo V Vintage.png" alt="Logo V Vintage Coffeeshop" class="logo-image">
+    </div>
+    
+    <h2>VOICE OF INDEPENDENCE</h2>
+    <p class="subtitle">Lomba Menyanyi HUT RI Ke-81 @ V_VINTAGE Café</p>
+    
+    <form id="formPendaftaran">
+        <div class="form-group">
+            <label for="nama">Nama Lengkap Peserta:</label>
+            <input type="text" id="nama" placeholder="Masukkan nama lengkap" required>
+        </div>
+
+        <div class="form-group">
+            <label for="telepon">Nomor HP / WhatsApp Peserta:</label>
+            <input type="tel" id="telepon" placeholder="Contoh: 081234567890" required>
+        </div>
+
+        <div class="form-group">
+            <label for="usia">Usia (Tahun):</label>
+            <input type="number" id="usia" placeholder="Contoh: 15" required>
+        </div>
+
+        <div class="form-group">
+            <label for="kategori">Kategori Lomba:</label>
+            <select id="kategori" required>
+                <option value="">-- Pilih Kategori --</option>
+                <option value="Anak-Anak (7 - 12 Tahun)">Anak-Anak (7 - 12 Tahun)</option>
+                <option value="Remaja (13 - 17 Tahun)">Remaja (13 - 17 Tahun)</option>
+                <option value="Dewasa / Umum (18+ Tahun)">Dewasa / Umum (18+ Tahun)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="alamat">Alamat / Domisili:</label>
+            <input type="text" id="alamat" placeholder="Kota / Kecamatan" required>
+        </div>
+
+        <!-- Bagian Lagu Wajib yang diperbarui -->
+        <div class="form-group">
+            <label for="laguWajib">Judul Lagu Wajib:</label>
+            <select id="laguWajib" required>
+                <option value="">-- Pilih Lagu Wajib --</option>
+                <option value="Berkibarlah Bendera Negeriku">Berkibarlah Bendera Negeriku</option>
+
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="laguPilihan">Judul Lagu Pilihan:</label>
+            <input type="text" id="laguPilihan" placeholder="Judul lagu & penyanyi" required>
+        </div>
+
+        <div class="form-group">
+            <label for="catatan">Catatan / Keterangan Tambahan (Opsional):</label>
+            <textarea id="catatan" rows="3" placeholder="Contoh: membawa minus one sendiri"></textarea>
+        </div>
+
+        <button type="button" class="btn-submit" onclick="kirimKeWA()">Daftar via WhatsApp</button>
+    </form>
+</div>
+
+<script>
+function kirimKeWA() {
+    const nama = document.getElementById('nama').value;
+    const telepon = document.getElementById('telepon').value;
+    const usia = document.getElementById('usia').value;
+    const kategori = document.getElementById('kategori').value;
+    const alamat = document.getElementById('alamat').value;
+    const laguWajib = document.getElementById('laguWajib').value;
+    const laguPilihan = document.getElementById('laguPilihan').value;
+    const catatan = document.getElementById('catatan').value || '-';
+
+    if (!nama || !telepon || !usia || !kategori || !alamat || !laguWajib || !laguPilihan) {
+        alert('Mohon lengkapi semua kolom yang wajib diisi!');
+        return;
+    }
+
+    const noWA = "6285708708252";
+
+    let pesan = `*PENDAFTARAN LOMBA VOICE OF INDEPENDENCE*\n`;
+    pesan += `*V_VINTAGE CAFÉ*\n\n`;
+    pesan += `Halo Panitia, saya ingin mendaftar lomba menyanyi dengan data berikut:\n\n`;
+    pesan += `* *Nama Lengkap:* ${nama}\n`;
+    pesan += `* *No. HP/WA:* ${telepon}\n`;
+    pesan += `* *Usia:* ${usia} Tahun\n`;
+    pesan += `* *Kategori:* ${kategori}\n`;
+    pesan += `* *Alamat/Domisili:* ${alamat}\n`;
+    pesan += `* *Lagu Wajib:* ${laguWajib}\n`;
+    pesan += `* *Lagu Pilihan:* ${laguPilihan}\n`;
+    pesan += `* *Catatan:* ${catatan}\n\n`;
+    pesan += `Mohon konfirmasi langkah selanjutnya untuk pembayaran / pendaftaran ulang. Terima kasih!`;
+
+    const urlWA = `https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`;
+    window.open(urlWA, '_blank');
+}
+</script>
+
+</body>
+</html>
